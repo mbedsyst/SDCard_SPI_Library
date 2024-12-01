@@ -5,29 +5,29 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Src/main.c \
-../Src/syscalls.c \
-../Src/sysmem.c 
+../Src/SDCard/CMD.c \
+../Src/SDCard/RSP.c \
+../Src/SDCard/SDCard.c 
 
 OBJS += \
-./Src/main.o \
-./Src/syscalls.o \
-./Src/sysmem.o 
+./Src/SDCard/CMD.o \
+./Src/SDCard/RSP.o \
+./Src/SDCard/SDCard.o 
 
 C_DEPS += \
-./Src/main.d \
-./Src/syscalls.d \
-./Src/sysmem.d 
+./Src/SDCard/CMD.d \
+./Src/SDCard/RSP.d \
+./Src/SDCard/SDCard.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
-Src/%.o Src/%.su Src/%.cyclo: ../Src/%.c Src/subdir.mk
+Src/SDCard/%.o Src/SDCard/%.su Src/SDCard/%.cyclo: ../Src/SDCard/%.c Src/SDCard/subdir.mk
 	arm-none-eabi-gcc "$<" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F401xE -c -I../Inc -I"../$(ProjDirPath)/Headers/CMSIS/Include" -I"../$(ProjDirPath)/Headers/CMSIS/Device/ST/STM32F4xx/Include" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "$@"
 
-clean: clean-Src
+clean: clean-Src-2f-SDCard
 
-clean-Src:
-	-$(RM) ./Src/main.cyclo ./Src/main.d ./Src/main.o ./Src/main.su ./Src/syscalls.cyclo ./Src/syscalls.d ./Src/syscalls.o ./Src/syscalls.su ./Src/sysmem.cyclo ./Src/sysmem.d ./Src/sysmem.o ./Src/sysmem.su
+clean-Src-2f-SDCard:
+	-$(RM) ./Src/SDCard/CMD.cyclo ./Src/SDCard/CMD.d ./Src/SDCard/CMD.o ./Src/SDCard/CMD.su ./Src/SDCard/RSP.cyclo ./Src/SDCard/RSP.d ./Src/SDCard/RSP.o ./Src/SDCard/RSP.su ./Src/SDCard/SDCard.cyclo ./Src/SDCard/SDCard.d ./Src/SDCard/SDCard.o ./Src/SDCard/SDCard.su
 
-.PHONY: clean-Src
+.PHONY: clean-Src-2f-SDCard
 

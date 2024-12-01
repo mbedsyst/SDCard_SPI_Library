@@ -10,6 +10,8 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include Startup/subdir.mk
+-include Src/SDCard/subdir.mk
+-include Src/Drivers/subdir.mk
 -include Src/subdir.mk
 -include objects.mk
 
@@ -33,34 +35,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := FLASH_W25Q64
+BUILD_ARTIFACT_NAME := SDCard_Library
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-FLASH_W25Q64.elf \
+SDCard_Library.elf \
 
 MAP_FILES += \
-FLASH_W25Q64.map \
+SDCard_Library.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-FLASH_W25Q64.list \
+SDCard_Library.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: FLASH_W25Q64.elf secondary-outputs
+main-build: SDCard_Library.elf secondary-outputs
 
 # Tool invocations
-FLASH_W25Q64.elf FLASH_W25Q64.map: $(OBJS) $(USER_OBJS) C:\Users\zalma\OneDrive\Documents\STM32F4\FLASH_W25Q64\STM32F401RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "FLASH_W25Q64.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\zalma\OneDrive\Documents\STM32F4\FLASH_W25Q64\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="FLASH_W25Q64.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+SDCard_Library.elf SDCard_Library.map: $(OBJS) $(USER_OBJS) C:\Users\zalma\OneDrive\Documents\STM32F4\SDCard_Library\STM32F401RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "SDCard_Library.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\zalma\OneDrive\Documents\STM32F4\SDCard_Library\STM32F401RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="SDCard_Library.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -69,14 +71,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-FLASH_W25Q64.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "FLASH_W25Q64.list"
+SDCard_Library.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "SDCard_Library.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) FLASH_W25Q64.elf FLASH_W25Q64.list FLASH_W25Q64.map default.size.stdout
+	-$(RM) SDCard_Library.elf SDCard_Library.list SDCard_Library.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
