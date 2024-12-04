@@ -1,3 +1,0 @@
-../Src/SDCard/SDCard.c:21:6:SD_Reset	1
-../Src/SDCard/SDCard.c:26:6:SD_WriteBlock	1
-../Src/SDCard/SDCard.c:31:6:SD_ReadBlock	1

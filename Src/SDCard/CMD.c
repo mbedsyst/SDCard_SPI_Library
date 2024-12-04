@@ -24,4 +24,4 @@
 // Application-Specific Commands
 #define CMD_APP_CMD                  (0x40 | 55)  // CMD55
 #define ACMD_APP_SEND_OP_COND        (0x40 | 41)  // ACMD41
-#define ACMD_SET_BLOCK_ERASE_COUNT 	 (0x40 | 23)  // ACMD23
+#define ACMD_SET_BLOCK_ERASE_COUNT   (0x40 | 23)  // ACMD23

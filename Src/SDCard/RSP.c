@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-void CheckR1(uint8_t r1)
+static void CheckR1(uint8_t r1)
 {
     printf("R1 Response: 0x%02X\n", r1);
 
@@ -25,7 +25,7 @@ void CheckR1(uint8_t r1)
 }
 
 
-void CheckR3(uint32_t r3)
+static void CheckR3(uint32_t r3)
 {
     printf("R3 Response: 0x%08X\n", r3);
 
@@ -42,7 +42,7 @@ void CheckR3(uint32_t r3)
 }
 
 
-void CheckR6(uint32_t r6)
+static void CheckR6(uint32_t r6)
 {
     printf("R6 Response: 0x%08X\n", r6);
     uint16_t rca = R6_GET_RCA(r6);
@@ -57,7 +57,7 @@ void CheckR6(uint32_t r6)
 }
 
 
-void CheckR7(uint32_t r7)
+static void CheckR7(uint32_t r7)
 {
     printf("R7 Response: 0x%08X\n", r7);
 
@@ -78,7 +78,7 @@ void CheckR7(uint32_t r7)
 }
 
 
-void PrintResponse(uint8_t cmd, uint32_t response)
+void CheckResponse(uint8_t cmd, uint32_t response)
 {
     switch (cmd)
     {

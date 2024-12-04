@@ -2,9 +2,9 @@
 #define __SDCARD_H__
 
 #include "Drivers/SPI.h"
-  
-void SD_Reset(void);
-void SD_WriteBlock(uint32_t address, uint8_t *data, uint16_t size);
-void SD_ReadBlock(uint32_t address, uint8_t *data, uint16_t size);
+
+
+uint8_t SD_Reset(void);
+uint8_t SD_WriteBlock(uint32_t blockAddr, uint8_t *data);
 
 #endif

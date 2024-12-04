@@ -12,6 +12,9 @@
 #define R1_READY_FOR_DATA      		(1 << 8)  // Card ready for data (applicable in transfer mode)
 #define R1_APP_CMD             		(1 << 9)  // Next command is application-specific
 
+// R1B Response Bits
+#define R1B_BUSY					(0x00)  // Card is busy (after R1 bits)
+
 // R2 Response: No specific flags (contains 128 bits of data)
 #define R2_CID_CSD_LENGTH      		(136)     // Total length of R2 response (bits)
 
@@ -33,9 +36,13 @@
 
 // Response Parsing Macros
 #define R1_IS_ERROR(r1)       		((r1) & 0xFE)  						// Check if any error flags are set
+#define R1B_IS_CARD_BUSY(r1b)       ((r1b) == R1B_BUSY) 				// Check if the card is still busy
+#define R1B_IS_CARD_READY(r1b)      ((r1b) != R1B_BUSY) 				// Check if the card is read
 #define R3_GET_OCR(response)   		((response) & R3_OCR_MASK)  		// Extract OCR from R3
 #define R6_GET_RCA(response)   		(((response) & R6_RCA_MASK) >> 16)  // Extract RCA from R6
 #define R7_GET_PATTERN(response) 	((response) & R7_CHECK_PATTERN)  	// Extract check pattern
 #define R7_IS_VALID(r7)        		((r7) == R7_VALID_RESPONSE)  		// Validate R7 response
+
+void CheckResponse(uint8_t cmd, uint32_t response);
 
 #endif
