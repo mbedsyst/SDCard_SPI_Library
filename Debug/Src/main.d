@@ -1,5 +1,4 @@
-Src/SDCard/SDCard.o: ../Src/SDCard/SDCard.c ../Inc/SDCard/SDCard.h \
- ../Inc/Drivers/SPI.h \
+Src/main.o: ../Src/main.c ../Inc/SDCard/SDCard.h ../Inc/Drivers/SPI.h \
  ..//Headers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h \
  ..//Headers/CMSIS/Device/ST/STM32F4xx/Include/stm32f401xe.h \
  ..//Headers/CMSIS/Include/core_cm4.h \

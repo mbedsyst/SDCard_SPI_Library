@@ -1,0 +1,4 @@
+../Src/SDCard/RSP.c:6:13:CheckR1	16	static
+../Src/SDCard/RSP.c:29:13:CheckR3	16	static
+../Src/SDCard/RSP.c:46:13:CheckR7	24	static
+../Src/SDCard/RSP.c:67:6:CheckResponse	16	static

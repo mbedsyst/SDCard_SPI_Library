@@ -2,7 +2,6 @@
 "./Src/Drivers/SPI.o"
 "./Src/Drivers/SYSTICK.o"
 "./Src/Drivers/UART.o"
-"./Src/SDCard/CMD.o"
 "./Src/SDCard/RSP.o"
 "./Src/SDCard/SDCard.o"
 "./Src/main.o"

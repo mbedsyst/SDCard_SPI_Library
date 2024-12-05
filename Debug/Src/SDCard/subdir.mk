@@ -5,17 +5,14 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../Src/SDCard/CMD.c \
 ../Src/SDCard/RSP.c \
 ../Src/SDCard/SDCard.c 
 
 OBJS += \
-./Src/SDCard/CMD.o \
 ./Src/SDCard/RSP.o \
 ./Src/SDCard/SDCard.o 
 
 C_DEPS += \
-./Src/SDCard/CMD.d \
 ./Src/SDCard/RSP.d \
 ./Src/SDCard/SDCard.d 
 
@@ -27,7 +24,7 @@ Src/SDCard/%.o Src/SDCard/%.su Src/SDCard/%.cyclo: ../Src/SDCard/%.c Src/SDCard/
 clean: clean-Src-2f-SDCard
 
 clean-Src-2f-SDCard:
-	-$(RM) ./Src/SDCard/CMD.cyclo ./Src/SDCard/CMD.d ./Src/SDCard/CMD.o ./Src/SDCard/CMD.su ./Src/SDCard/RSP.cyclo ./Src/SDCard/RSP.d ./Src/SDCard/RSP.o ./Src/SDCard/RSP.su ./Src/SDCard/SDCard.cyclo ./Src/SDCard/SDCard.d ./Src/SDCard/SDCard.o ./Src/SDCard/SDCard.su
+	-$(RM) ./Src/SDCard/RSP.cyclo ./Src/SDCard/RSP.d ./Src/SDCard/RSP.o ./Src/SDCard/RSP.su ./Src/SDCard/SDCard.cyclo ./Src/SDCard/SDCard.d ./Src/SDCard/SDCard.o ./Src/SDCard/SDCard.su
 
 .PHONY: clean-Src-2f-SDCard
 

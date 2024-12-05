@@ -1,0 +1,2 @@
+../Src/SDCard/SDCard.c:5:16:SD_SendCommand	24	static
+../Src/SDCard/SDCard.c:29:9:SD_Reset	16	static

@@ -1,6 +1,8 @@
 #ifndef __RSP_H__
 #define __RSP_H__
 
+#include <stdint.h>
+
 // R1 Response Bits
 #define R1_IDLE_STATE          		(1 << 0)  // Card is in idle state
 #define R1_ERASE_RESET         		(1 << 1)  // Erase reset occurred
